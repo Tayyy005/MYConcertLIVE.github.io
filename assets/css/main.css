@@ -4776,6 +4776,31 @@ body {
 
 	}
 
+/* ===== FORCE MODAL TO TOP (Massively Fix) ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647; /* 浏览器极限层级 */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 420px;
+  width: 90%;
+}
+
+
 
 
 
