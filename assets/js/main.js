@@ -280,8 +280,28 @@ document.addEventListener("DOMContentLoaded", function () {
     if (e.target === modal) modal.style.display = "none";
   };
 });
+	<script>
+let selectedSeat = null;
+
+document.querySelectorAll(".seat").forEach(seat => {
+  seat.addEventListener("click", function () {
+
+    // 移除之前选中的
+    document.querySelectorAll(".seat").forEach(s => s.classList.remove("selected"));
+
+    // 选中当前
+    this.classList.add("selected");
+    selectedSeat = this.innerText;
+
+    document.getElementById("selectedSeat").innerText =
+      "Selected Seat: " + selectedSeat;
+  });
+});
+</script>
+
 
 
 
 })(jQuery);
+
 
