@@ -255,4 +255,40 @@
 
 		}
 
+	// ===== Buy Ticket Modal =====
+document.addEventListener("DOMContentLoaded", function () {
+
+  const modal = document.getElementById("ticketModal");
+  const buyBtns = document.querySelectorAll(".buy-ticket");
+  const closeBtn = document.querySelector(".close");
+  const confirmBtn = document.getElementById("confirmBtn");
+
+  if (!modal) return;
+
+  buyBtns.forEach(btn => {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      modal.style.display = "block";
+    });
+  });
+
+  closeBtn.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  confirmBtn.addEventListener("click", function () {
+    alert("Booking successful! (Demo only)");
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+});
+
+
+
 })(jQuery);
