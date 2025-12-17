@@ -228,10 +228,51 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+		<script>
+const modal = document.getElementById("ticketModal");
+const btns = document.querySelectorAll(".button"); // 所有 Buy Ticket 按钮
+const span = document.getElementsByClassName("close")[0];
+const confirmBtn = document.getElementById("confirmBtn");
+
+btns.forEach(btn => {
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+});
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+confirmBtn.onclick = function() {
+  alert("Thank you for booking! (Demo Only)");
+  modal.style.display = "none";
+}
+</script>
+
+
+<!-- Ticket Modal -->
+<div id="ticketModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Book Your Ticket</h2>
+    <p>Select quantity and confirm your order (demo only).</p>
+    <label for="qty">Quantity:</label>
+    <input type="number" id="qty" name="qty" min="1" max="10" value="1">
+    <button id="confirmBtn">Confirm</button>
+  </div>
+</div>
 
 	</body>
 
 </html>
+
 
 
 
