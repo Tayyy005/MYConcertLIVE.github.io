@@ -71,6 +71,38 @@ if (concert === "jaychou") {
 }
 </script>
   <p id="totalPrice">Total: RM0</p>
+  <script>
+let selectedSeat = null;
+let selectedPrice = 0;
+
+// 监听座位类别（VIP / Premium / Standard）
+document.querySelectorAll("input[name='category']").forEach(radio => {
+  radio.addEventListener("change", function () {
+    selectedPrice = parseInt(this.dataset.price);
+    updateTotal();
+  });
+});
+
+// 监听座位点击
+document.querySelectorAll(".seat").forEach(seat => {
+  seat.addEventListener("click", function () {
+
+    document.querySelectorAll(".seat").forEach(s => s.classList.remove("selected"));
+    this.classList.add("selected");
+
+    selectedSeat = this.innerText;
+    document.getElementById("selectedSeat").innerText =
+      "Selected Seat: " + selectedSeat;
+  });
+});
+
+// 更新总价
+function updateTotal() {
+  document.getElementById("totalPrice").innerText =
+    "Total: RM" + selectedPrice;
+}
+</script>
+
 
 </body>
 </html>
